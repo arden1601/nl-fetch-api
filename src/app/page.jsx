@@ -3,8 +3,16 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export default function Home() {
-
   const handleClick = () => {
+    // axios
+    //   .get("/api/dummy")
+    //   .then((response) => {
+    //     window.alert(response.data.message);
+    //   })
+    //   .catch((error) => {
+    //     window.alert(error.response.data.message);
+    //   });
+
     const clickFunction = axios.get("/api/dummy")
     toast.promise(clickFunction, {
       loading: "Loading...",
@@ -15,12 +23,14 @@ export default function Home() {
         return error.response.data.message
       }
     })
-
-  }
+  };
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
-      <button className="cursor-pointer" onClick={handleClick}>
+    <div className="flex justify-center items-center w-screen h-screen bg-white">
+      <button
+        className="cursor-pointer text-black border-2 p-4"
+        onClick={handleClick}
+      >
         Click Me
       </button>
     </div>
