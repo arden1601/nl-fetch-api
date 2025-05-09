@@ -1,19 +1,30 @@
 "use client";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 export default function Home() {
+  const [data, setData] = useState(null);
   const handleClick = () => {
     // axios
-    //   .get("/api/dummy")
+    //   .get("/api/dummy", {
+    //     params:{
+    //       id: 2,
+    //     }
+    //   })
     //   .then((response) => {
+    //     setData(response.data.message);
     //     window.alert(response.data.message);
     //   })
     //   .catch((error) => {
     //     window.alert(error.response.data.message);
     //   });
 
-    const clickFunction = axios.get("/api/dummy")
+    const clickFunction = axios.get("/api/dummy", {
+      params: {
+        id: 3,
+      }
+    })
     toast.promise(clickFunction, {
       loading: "Loading...",
       success: (data) => {
